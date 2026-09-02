@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Procedure Log</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Procedure Log">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2c6e5c">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+  :root{
+    --ink:#16241f;
+    --ink-soft:#4d5c56;
+    --paper:#f4f6f3;
+    --card:#ffffff;
+    --line:#dde3de;
+    --teal:#2c6e5c;
+    --teal-deep:#1f5346;
+    --teal-wash:#e5f0ec;
+    --brick:#a8442f;
+    --brick-wash:#f7e8e4;
+    --amber:#a67a1e;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:78px;
+    min-height:100vh;
+  }
+  #app{max-width:520px;margin:0 auto;padding:0 16px;}
+
+  header.top{
+    padding:calc(22px + env(safe-area-inset-top)) 16px 14px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    max-width:520px;
+    margin:0 auto;
+  }
+  header.top h1{
+    font-size:21px;
+    letter-spacing:-0.01em;
+    font-weight:700;
+    margin:0;
+  }
+  header.top .count{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-variant-numeric:tabular-nums;
+  }
+
+  section{display:none;}
+  section.active{display:block;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px;
+    margin-bottom:14px;
+  }
+
+  .group-label{
+    font-size:12px;
+    font-weight:600;
+    color:var(--teal-deep);
+    margin:0 0 10px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .field{margin-bottom:12px;}
+  .field:last-child{margin-bottom:0;}
+  .field label{
+    display:block;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-bottom:5px;
+  }
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+  input,select,textarea{
+    width:100%;
+    font-size:16px;
+    font-family:inherit;
+    color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:10px 11px;
+    outline:none;
+  }
+  input:focus,select:focus,textarea:focus{
+    border-color:var(--teal);
+    background:#fff;
+  }
+  textarea{resize:vertical;min-height:44px;}
+  select{appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%234d5c56'><path d='M2 4l5 6 5-6z'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;
+  }
+
+  .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;}
+  .seg button{
+    flex:1;border:none;background:var(--paper);padding:10px 0;font-size:14.5px;color:var(--ink-soft);
+    font-family:inherit;
+  }
+  .seg button.on{background:var(--teal);color:#fff;font-weight:600;}
+  .seg button + button{border-left:1px solid var(--line);}
+
+  .primary-btn{
+    width:100%;
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    border-radius:11px;
+    padding:14px 0;
+    font-size:15.5px;
+    font-weight:600;
+    font-family:inherit;
+    margin-top:4px;
+  }
+  .primary-btn:active{background:var(--teal-deep);}
+  .ghost-btn{
+    width:100%;
+    background:transparent;
+    color:var(--teal-deep);
+    border:1px solid var(--teal);
+    border-radius:11px;
+    padding:11px 0;
+    font-size:14.5px;
+    font-weight:600;
+    font-family:inherit;
+  }
+  .text-btn{
+    background:none;border:none;color:var(--teal-deep);font-family:inherit;font-size:13.5px;font-weight:600;padding:6px 0;
+  }
+
+  /* History */
+  .search-row{display:flex;gap:8px;margin-bottom:12px;}
+  .search-row input{flex:1;}
+  .filter-chip{
+    border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 12px;font-size:14px;color:var(--ink-soft);font-family:inherit;
+  }
+
+  .entry{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:9px;
+  }
+  .entry-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .entry-num{
+    font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;
+  }
+  .entry-cat{font-size:15px;font-weight:600;margin:2px 0 2px;}
+  .entry-meta{font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
+  .badge{
+    font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap;
+  }
+  .badge.ind{background:var(--teal-wash);color:var(--teal-deep);}
+  .badge.sup{background:#eef0e8;color:var(--ink-soft);}
+  .badge.comp{background:var(--brick-wash);color:var(--brick);}
+  .entry-detail{font-size:13px;color:var(--ink);margin-top:6px;line-height:1.45;}
+  .entry-actions{display:flex;gap:14px;margin-top:10px;}
+  .entry-actions button{background:none;border:none;font-family:inherit;font-size:12.5px;font-weight:600;padding:0;}
+  .entry-actions .edit{color:var(--teal-deep);}
+  .entry-actions .del{color:var(--brick);}
+  .sync-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:1px;}
+  .sync-dot.yes{background:var(--teal);}
+  .sync-dot.no{background:var(--amber);}
+
+  .empty{
+    text-align:center;color:var(--ink-soft);font-size:14px;padding:50px 20px;
+  }
+
+  /* Summary */
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th,td{text-align:left;padding:8px 4px;border-bottom:1px solid var(--line);}
+  th{color:var(--ink-soft);font-weight:600;font-size:12px;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
+  .summary-total{
+    display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;
+  }
+  .summary-total .n{font-size:34px;font-weight:700;letter-spacing:-0.02em;}
+  .summary-total .l{font-size:12.5px;color:var(--ink-soft);}
+
+  /* Sync view */
+  .status-line{display:flex;align-items:center;gap:8px;font-size:13.5px;margin-bottom:14px;}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:20px;
+  }
+  .status-pill.off{background:#eef0e8;color:var(--ink-soft);}
+  .status-pill.on{background:var(--teal-wash);color:var(--teal-deep);}
+  pre{
+    background:#0f1c17;color:#d9ede6;font-size:11.5px;line-height:1.6;border-radius:10px;padding:12px;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  ol.steps{padding-left:18px;font-size:13.5px;line-height:1.7;color:var(--ink);}
+  ol.steps li{margin-bottom:4px;}
+  .toast{
+    position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:#fff;font-size:13px;padding:9px 16px;border-radius:20px;
+    opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;
+    z-index:50;white-space:nowrap;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(-4px);}
+
+  nav.tabs{
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(244,246,243,0.94);
+    backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);
+    display:flex;
+    padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+  }
+  nav.tabs button{
+    flex:1;background:none;border:none;font-family:inherit;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:6px 0;color:var(--ink-soft);font-size:11px;font-weight:600;
+  }
+  nav.tabs button svg{width:20px;height:20px;}
+  nav.tabs button.on{color:var(--teal-deep);}
+  nav.tabs button.on svg{stroke:var(--teal-deep);}
+  nav.tabs button svg{stroke:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <h1>Procedure Log</h1>
+    <span class="count" id="headerCount"></span>
+  </header>
+
+  <!-- ENTRY -->
+  <section id="view-entry" class="active">
+    <form id="entryForm">
+      <div class="card">
+        <p class="group-label">Procedure</p>
+        <div class="row2">
+          <div class="field">
+            <label for="f-date">Date performed</label>
+            <input type="date" id="f-date" required>
+          </div>
+          <div class="field">
+            <label for="f-service">Service line</label>
+            <select id="f-service"><option value="Adult">Adult</option><option value="Pediatric">Pediatric</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-setting">Setting</label>
+          <select id="f-setting"></select>
+        </div>
+        <div class="field">
+          <label for="f-category">Procedure category</label>
+          <select id="f-category"></select>
+        </div>
+        <div class="field">
+          <label for="f-detail">Procedure detail</label>
+          <textarea id="f-detail" placeholder="Specific description, e.g. L thumb digital block w/1% buffered lidocaine"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-site">Site / laterality</label>
+          <input type="text" id="f-site" placeholder="e.g. L thumb">
+        </div>
+        <div class="field">
+          <label>Your role</label>
+          <select id="f-role">
+            <option>Performed Independently</option>
+            <option>Performed with Supervision</option>
+            <option>Assisted</option>
+            <option>Observed Only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="group-label">Patient</p>
+        <div class="row2">
+          <div class="field">
+            <label for="f-mrn">MRN / ID</label>
+            <input type="text" id="f-mrn" placeholder="MRN-10234">
+          </div>
+          <div class="field">
+            <label for="f-initials">Initials</label>
+            <input type="text" id="f-initials" placeholder="N.T.">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-dob">DOB</label>
+            <input type="date" id="f-dob">
+          </div>
+          <div class="field">
+            <label for="f-gender">Gender</label>
+            <select id="f-gender">
+              <option value="">—</option>
+              <option value="F">F</option>
+              <option value="M">M</option>
+              <option value="Other/Unspecified">Other/Unspecified</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="group-label">Outcome</p>
+        <div class="field">
+          <label>Complication</label>
+          <div class="seg" id="compSeg">
+            <button type="button" data-val="N" class="on">No</button>
+            <button type="button" data-val="Y">Yes</button>
+          </div>
+        </div>
+        <div class="field" id="compDetailWrap" style="display:none;">
+          <label for="f-compdetail">Complication details</label>
+          <textarea id="f-compdetail" placeholder="What happened"></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="group-label">Supervision &amp; notes</p>
+        <div class="field">
+          <label for="f-supervisor">Supervisor</label>
+          <input type="text" id="f-supervisor" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="f-supsite">Supervisor institution / site</label>
+          <input type="text" id="f-supsite" placeholder="e.g. BCH ED">
+        </div>
+        <div class="field">
+          <label for="f-notes">Notes</label>
+          <textarea id="f-notes" placeholder="Optional"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="primary-btn" id="saveBtn">Save procedure</button>
+    </form>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="view-history">
+    <div class="search-row">
+      <input type="text" id="searchBox" placeholder="Search detail, MRN, supervisor…">
+      <select id="filterCat" class="filter-chip"></select>
+    </div>
+    <div id="historyList"></div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="view-summary">
+    <div class="card">
+      <div class="summary-total">
+        <div><div class="n" id="totalCount">0</div><div class="l">procedures logged</div></div>
+        <div style="text-align:right;">
+          <div class="n" id="compCount" style="font-size:20px;color:var(--brick);">0</div>
+          <div class="l">with a complication</div>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>Category</th><th class="num">Adult</th><th class="num">Peds</th><th class="num">Total</th></tr></thead>
+        <tbody id="summaryBody"></tbody>
+      </table>
+    </div>
+    <button class="ghost-btn" id="exportBtn">Export CSV</button>
+  </section>
+
+  <!-- SYNC -->
+  <section id="view-sync">
+    <div class="card">
+      <p class="group-label">Google Sheets sync</p>
+      <div class="status-line">
+        <span class="status-pill off" id="syncPill">Not connected</span>
+      </div>
+      <div class="field">
+        <label for="f-syncurl">Web app URL</label>
+        <input type="text" id="f-syncurl" placeholder="https://script.google.com/macros/s/…/exec">
+      </div>
+      <div class="field" style="margin-top:8px;">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);">
+          <input type="checkbox" id="f-syncphi" style="width:auto;">
+          Include MRN / ID, initials, and DOB when syncing
+        </label>
+      </div>
+      <button class="primary-btn" id="saveSyncBtn" type="button">Save connection</button>
+      <button class="ghost-btn" id="syncNowBtn" type="button" style="margin-top:8px;">Sync all now</button>
+    </div>
+
+    <div class="card">
+      <p class="group-label">One-time setup (5 min)</p>
+      <ol class="steps">
+        <li>Open Google Sheets and create a new sheet (or open a copy of your existing log).</li>
+        <li>Go to <b>Extensions → Apps Script</b>.</li>
+        <li>Delete any starter code and paste in the script below.</li>
+        <li>Click <b>Deploy → New deployment</b>, choose type <b>Web app</b>.</li>
+        <li>Set "Execute as" to <b>Me</b> and "Who has access" to <b>Anyone</b>, then Deploy.</li>
+        <li>Authorize when prompted, then copy the web app URL it gives you.</li>
+        <li>Paste that URL above and tap <b>Save connection</b>.</li>
+      </ol>
+      <p style="font-size:12.5px;color:var(--ink-soft);margin:10px 0 6px;">Apps Script code to paste:</p>
+      <pre id="scriptCode"></pre>
+      <button class="text-btn" id="copyScriptBtn" type="button">Copy script</button>
+    </div>
+    <p style="font-size:12px;color:var(--ink-soft);text-align:center;padding:0 8px 8px;">
+      Entries save to your phone either way. Sync just also appends them to your Sheet — since the connection can't confirm each write back, spot-check the Sheet the first few times.
+    </p>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <nav class="tabs">
+    <button data-tab="entry" class="on">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      Log
+    </button>
+    <button data-tab="history">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-7 3L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></svg>
+      History
+    </button>
+    <button data-tab="summary">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/></svg>
+      Summary
+    </button>
+    <button data-tab="sync">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      Sync
+    </button>
+  </nav>
+</div>
+
+<script>
+const SETTINGS = ['ED','Inpatient Ward','ICU/PICU/NICU','OR','Outpatient Clinic','Newborn Nursery','Urgent Care','Other'];
+const CATEGORIES = ['Laceration/Wound Repair (Suturing)','POCUS - Cardiac','POCUS - Lung','POCUS - Abdominal/FAST',
+  'POCUS - Soft Tissue/MSK','POCUS - Vascular Access Guidance','POCUS - Other','Central Line','Arterial Line',
+  'Peripheral IV','Lumbar Puncture','Endotracheal Intubation','Bag-Valve-Mask Ventilation','Paracentesis',
+  'Thoracentesis','Chest Tube/Thoracostomy','Arthrocentesis/Joint Injection','Incision & Drainage',
+  'Nerve/Digital Block','Circumcision','Newborn Resuscitation','NG/OG Tube Placement','Foley Catheter',
+  'Splinting/Casting','Skin Biopsy','Cardioversion/Defibrillation','Other'];
+
+const APPS_SCRIPT = `function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var d = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    d.logNum, d.date, d.mrn || '', d.initials || '', d.dob || '', d.gender || '',
+    d.serviceLine, d.setting, d.category, d.detail, d.site, d.role,
+    d.complication, d.compDetail || '', d.supervisor || '', d.supervisorSite || '', d.notes || ''
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({status:'ok'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}`;
+document.getElementById('scriptCode').textContent = APPS_SCRIPT;
+
+let entries = [];
+let syncConfig = {url:'', includePHI:false};
+
+function todayStr(){
+  const d = new Date();
+  return d.toISOString().slice(0,10);
+}
+
+function fillSelect(sel, options, placeholder){
+  sel.innerHTML = (placeholder ? `<option value="">${placeholder}</option>` : '') +
+    options.map(o=>`<option value="${o}">${o}</option>`).join('');
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toast._h);
+  toast._h = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+async function loadAll(){
+  try{
+    const r = await window.storage.get('entries');
+    entries = r && r.value ? JSON.parse(r.value) : [];
+  }catch(e){ entries = []; }
+  try{
+    const r = await window.storage.get('syncConfig');
+    syncConfig = r && r.value ? JSON.parse(r.value) : {url:'', includePHI:false};
+  }catch(e){ syncConfig = {url:'', includePHI:false}; }
+}
+
+async function saveEntries(){
+  await window.storage.set('entries', JSON.stringify(entries));
+}
+async function saveSyncConfig(){
+  await window.storage.set('syncConfig', JSON.stringify(syncConfig));
+}
+
+function nextLogNum(){
+  return entries.reduce((m,e)=>Math.max(m, e.logNum||0), 0) + 1;
+}
+
+function renderHeaderCount(){
+  document.getElementById('headerCount').textContent = entries.length ? `${entries.length} logged` : '';
+}
+
+// ---- TABS ----
+document.querySelectorAll('nav.tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+    document.getElementById('view-'+btn.dataset.tab).classList.add('active');
+    if(btn.dataset.tab==='history') renderHistory();
+    if(btn.dataset.tab==='summary') renderSummary();
+    if(btn.dataset.tab==='sync') renderSync();
+    window.scrollTo(0,0);
+  });
+});
+
+// ---- ENTRY FORM ----
+fillSelect(document.getElementById('f-setting'), SETTINGS);
+fillSelect(document.getElementById('f-category'), CATEGORIES);
+document.getElementById('f-date').value = todayStr();
+
+let compVal = 'N';
+document.getElementById('compSeg').addEventListener('click', (e)=>{
+  const b = e.target.closest('button');
+  if(!b) return;
+  compVal = b.dataset.val;
+  document.querySelectorAll('#compSeg button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.getElementById('compDetailWrap').style.display = compVal==='Y' ? 'block' : 'none';
+});
+
+let editingId = null;
+
+document.getElementById('entryForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const entry = {
+    id: editingId || (Date.now()+'-'+Math.random().toString(36).slice(2,7)),
+    logNum: editingId ? entries.find(x=>x.id===editingId).logNum : nextLogNum(),
+    date: document.getElementById('f-date').value,
+    serviceLine: document.getElementById('f-service').value,
+    setting: document.getElementById('f-setting').value,
+    category: document.getElementById('f-category').value,
+    detail: document.getElementById('f-detail').value.trim(),
+    site: document.getElementById('f-site').value.trim(),
+    role: document.getElementById('f-role').value,
+    mrn: document.getElementById('f-mrn').value.trim(),
+    initials: document.getElementById('f-initials').value.trim(),
+    dob: document.getElementById('f-dob').value,
+    gender: document.getElementById('f-gender').value,
+    complication: compVal,
+    compDetail: document.getElementById('f-compdetail').value.trim(),
+    supervisor: document.getElementById('f-supervisor').value.trim(),
+    supervisorSite: document.getElementById('f-supsite').value.trim(),
+    notes: document.getElementById('f-notes').value.trim(),
+    synced: false
+  };
+  if(editingId){
+    const idx = entries.findIndex(x=>x.id===editingId);
+    entries[idx] = entry;
+  } else {
+    entries.push(entry);
+  }
+  await saveEntries();
+  renderHeaderCount();
+  toast(editingId ? 'Procedure updated' : `Saved as #${entry.logNum}`);
+  resetForm();
+  if(syncConfig.url){ pushToSheet(entry); }
+});
+
+function resetForm(){
+  editingId = null;
+  document.getElementById('saveBtn').textContent = 'Save procedure';
+  document.getElementById('entryForm').reset();
+  document.getElementById('f-date').value = todayStr();
+  compVal = 'N';
+  document.querySelectorAll('#compSeg button').forEach(x=>x.classList.remove('on'));
+  document.querySelector('#compSeg button[data-val="N"]').classList.add('on');
+  document.getElementById('compDetailWrap').style.display = 'none';
+}
+
+function loadIntoForm(entry){
+  editingId = entry.id;
+  document.getElementById('saveBtn').textContent = 'Update procedure';
+  document.getElementById('f-date').value = entry.date;
+  document.getElementById('f-service').value = entry.serviceLine;
+  document.getElementById('f-setting').value = entry.setting;
+  document.getElementById('f-category').value = entry.category;
+  document.getElementById('f-detail').value = entry.detail;
+  document.getElementById('f-site').value = entry.site;
+  document.getElementById('f-role').value = entry.role;
+  document.getElementById('f-mrn').value = entry.mrn;
+  document.getElementById('f-initials').value = entry.initials;
+  document.getElementById('f-dob').value = entry.dob;
+  document.getElementById('f-gender').value = entry.gender;
+  compVal = entry.complication;
+  document.querySelectorAll('#compSeg button').forEach(x=>x.classList.toggle('on', x.dataset.val===compVal));
+  document.getElementById('compDetailWrap').style.display = compVal==='Y' ? 'block' : 'none';
+  document.getElementById('f-compdetail').value = entry.compDetail;
+  document.getElementById('f-supervisor').value = entry.supervisor;
+  document.getElementById('f-supsite').value = entry.supervisorSite;
+  document.getElementById('f-notes').value = entry.notes;
+  document.querySelector('nav.tabs button[data-tab="entry"]').click();
+}
+
+// ---- HISTORY ----
+const filterCat = document.getElementById('filterCat');
+fillSelect(filterCat, CATEGORIES, 'All categories');
+filterCat.addEventListener('change', renderHistory);
+document.getElementById('searchBox').addEventListener('input', renderHistory);
+
+function renderHistory(){
+  const q = document.getElementById('searchBox').value.trim().toLowerCase();
+  const cat = filterCat.value;
+  const list = entries
+    .slice()
+    .sort((a,b)=> (b.date||'').localeCompare(a.date||'') || b.logNum-a.logNum)
+    .filter(e=>{
+      if(cat && e.category!==cat) return false;
+      if(!q) return true;
+      return [e.detail,e.mrn,e.initials,e.supervisor,e.supervisorSite,e.category,e.notes]
+        .join(' ').toLowerCase().includes(q);
+    });
+  const el = document.getElementById('historyList');
+  if(!list.length){
+    el.innerHTML = `<div class="empty">No procedures match yet.<br>Log one from the Log tab.</div>`;
+    return;
+  }
+  el.innerHTML = list.map(e=>{
+    const roleBadge = e.role==='Performed Independently' ? 'ind' : 'sup';
+    return `<div class="entry">
+      <div class="entry-top">
+        <div>
+          <div class="entry-num">#${e.logNum} · ${e.date||'—'}</div>
+          <div class="entry-cat">${e.category}</div>
+        </div>
+        <span class="badge ${roleBadge}">${e.role.replace('Performed ','')}</span>
+      </div>
+      <div class="entry-meta">${e.serviceLine} · ${e.setting}${e.site ? ' · '+e.site : ''}</div>
+      ${e.detail ? `<div class="entry-detail">${escapeHtml(e.detail)}</div>` : ''}
+      <div class="entry-meta" style="margin-top:6px;">
+        ${e.complication==='Y' ? '<span class="badge comp">Complication</span> ' : ''}
+        <span class="sync-dot ${e.synced?'yes':'no'}"></span>${e.synced?'Synced':'Not synced'}
+      </div>
+      <div class="entry-actions">
+        <button class="edit" data-id="${e.id}">Edit</button>
+        <button class="del" data-id="${e.id}">Delete</button>
+      </div>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.edit').forEach(b=>b.addEventListener('click', ()=>{
+    loadIntoForm(entries.find(x=>x.id===b.dataset.id));
+  }));
+  el.querySelectorAll('.del').forEach(b=>b.addEventListener('click', async ()=>{
+    if(!confirm('Delete this procedure entry?')) return;
+    entries = entries.filter(x=>x.id!==b.dataset.id);
+    await saveEntries();
+    renderHeaderCount();
+    renderHistory();
+    toast('Deleted');
+  }));
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ---- SUMMARY ----
+function renderSummary(){
+  document.getElementById('totalCount').textContent = entries.length;
+  document.getElementById('compCount').textContent = entries.filter(e=>e.complication==='Y').length;
+  const byCat = {};
+  CATEGORIES.forEach(c=> byCat[c] = {adult:0, peds:0});
+  entries.forEach(e=>{
+    if(!byCat[e.category]) byCat[e.category] = {adult:0, peds:0};
+    if(e.serviceLine==='Adult') byCat[e.category].adult++;
+    else byCat[e.category].peds++;
+  });
+  const rows = Object.entries(byCat)
+    .map(([cat,c])=>({cat, ...c, total:c.adult+c.peds}))
+    .filter(r=>r.total>0)
+    .sort((a,b)=>b.total-a.total);
+  const body = document.getElementById('summaryBody');
+  body.innerHTML = rows.length ? rows.map(r=>
+    `<tr><td>${r.cat}</td><td class="num">${r.adult}</td><td class="num">${r.peds}</td><td class="num"><b>${r.total}</b></td></tr>`
+  ).join('') : `<tr><td colspan="4" style="color:var(--ink-soft);padding:14px 4px;">No procedures logged yet.</td></tr>`;
+}
+
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  if(!entries.length){ toast('Nothing to export yet'); return; }
+  const headers = ['Log #','Date Performed','Patient MRN / ID','Patient Initials','DOB','Gender',
+    'Service Line','Setting','Procedure Category','Procedure Detail','Site / Laterality','Role',
+    'Complication','Complication Details','Supervisor','Supervisor Institution/Site','Notes'];
+  const rows = entries.slice().sort((a,b)=>a.logNum-b.logNum).map(e=>[
+    e.logNum,e.date,e.mrn,e.initials,e.dob,e.gender,e.serviceLine,e.setting,e.category,
+    e.detail,e.site,e.role,e.complication,e.compDetail,e.supervisor,e.supervisorSite,e.notes
+  ]);
+  const csv = [headers, ...rows].map(r=>
+    r.map(v=>{
+      v = (v===undefined||v===null) ? '' : String(v);
+      return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v;
+    }).join(',')
+  ).join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'procedure_log.csv';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+// ---- SYNC ----
+function renderSync(){
+  document.getElementById('f-syncurl').value = syncConfig.url || '';
+  document.getElementById('f-syncphi').checked = !!syncConfig.includePHI;
+  const pill = document.getElementById('syncPill');
+  if(syncConfig.url){
+    pill.textContent = 'Connected';
+    pill.className = 'status-pill on';
+  } else {
+    pill.textContent = 'Not connected';
+    pill.className = 'status-pill off';
+  }
+}
+
+document.getElementById('saveSyncBtn').addEventListener('click', async ()=>{
+  syncConfig.url = document.getElementById('f-syncurl').value.trim();
+  syncConfig.includePHI = document.getElementById('f-syncphi').checked;
+  await saveSyncConfig();
+  renderSync();
+  toast(syncConfig.url ? 'Connection saved' : 'Connection cleared');
+});
+
+document.getElementById('copyScriptBtn').addEventListener('click', ()=>{
+  navigator.clipboard.writeText(APPS_SCRIPT).then(()=>toast('Script copied'));
+});
+
+async function pushToSheet(entry){
+  if(!syncConfig.url) return;
+  const payload = {
+    logNum: entry.logNum, date: entry.date, serviceLine: entry.serviceLine, setting: entry.setting,
+    category: entry.category, detail: entry.detail, site: entry.site, role: entry.role,
+    complication: entry.complication, compDetail: entry.compDetail,
+    supervisor: entry.supervisor, supervisorSite: entry.supervisorSite, notes: entry.notes,
+    mrn: syncConfig.includePHI ? entry.mrn : '',
+    initials: syncConfig.includePHI ? entry.initials : '',
+    dob: syncConfig.includePHI ? entry.dob : '',
+    gender: entry.gender
+  };
+  try{
+    await fetch(syncConfig.url, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload)
+    });
+    entry.synced = true;
+    await saveEntries();
+  }catch(err){
+    entry.synced = false;
+  }
+}
+
+document.getElementById('syncNowBtn').addEventListener('click', async ()=>{
+  if(!syncConfig.url){ toast('Add a web app URL first'); return; }
+  const pending = entries.filter(e=>!e.synced);
+  if(!pending.length){ toast('Everything is already synced'); return; }
+  toast(`Syncing ${pending.length}…`);
+  for(const e of pending){ await pushToSheet(e); }
+  renderHistory();
+  toast('Sync complete — check your Sheet');
+});
+
+// ---- INIT ----
+(async function init(){
+  await loadAll();
+  renderHeaderCount();
+  renderHistory();
+  renderSummary();
+  renderSync();
+})();
+</script>
+</body>
+</html>
